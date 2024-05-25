@@ -63,7 +63,7 @@ def main_page(request):
                 login(request, user)
                 return HttpResponseRedirect(reverse('profile_page'))
             else:
-                # Пользователь не найден, регистрируем нового
+                # В случае, если пользователь не найден, создаём нового
                 form = UserCreationForm(request.POST)
                 if form.is_valid():
                     user = form.save()
