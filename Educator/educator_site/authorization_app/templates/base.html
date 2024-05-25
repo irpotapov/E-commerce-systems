@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="base_body">
+    <header class="base_header">
+        <nav class="base_nav">
+            <a href="{% url 'login_view' %}">Войти</a>
+            <a href="{% url 'educator_registration' %}">Регистрация</a>
+        </nav>
+    </header>
+    <section>
+        <div class="wrapper">
+            <h1 class="welcome_title">Добро пожаловать в приложение «Преподаватель»</h1>
+            <p class="welcome_subtitle">Чтобы увидеть весь функцианал данного приложения осуществите вход в систему.</p>
+            <p class="welcome_subtitle">Если у Вас нет учётной записи, пожалуйста, пройдите процедуру регистрации пользователя.</p>
+        </div>
+    </section>
+</body>
+</html>

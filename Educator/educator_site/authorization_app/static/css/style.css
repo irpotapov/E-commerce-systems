@@ -1,0 +1,1060 @@
+@font-face {
+    font-family: 'Verdana';
+    src: url(/static/fonts/Verdana.woff2) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Verdana';
+    src: url(/static/fonts/Verdana-Bold.woff2) format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url(/static/fonts/Helvetica-Regular.woff2) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url(/static/fonts/Helvetica-Bold.woff2) format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ /**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+ :where(ul, ol):where([class]) {
+   padding-left: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+ body,
+ :where(blockquote, figure):where([class]) {
+   margin: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+ :where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+   margin-block: 0;
+ }
+ 
+ :where(dd[class]) {
+   margin-left: 0;
+ }
+ 
+ /**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+ :where(ul[class]) {
+   list-style: none;
+ }
+ 
+ /**
+   Упрощаем работу с изображениями
+  */
+ img {
+   display: block;
+   max-width: 100%;
+ }
+ 
+ /**
+   Наследуем свойства шрифт для полей ввода
+  */
+ input,
+ textarea,
+ select,
+ button {
+   font: inherit;
+ }
+ 
+ html {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   height: 100%;
+   /**
+     Плавный скролл
+    */
+   scroll-behavior: smooth;
+ }
+ 
+ body {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   min-height: 100%;
+   /**
+     Унифицированный интерлиньяж
+    */
+   line-height: 1.5;
+ }
+ 
+ /**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+ @media (prefers-reduced-motion: reduce) {
+   * {
+     animation-duration: 0.01ms !important;
+     animation-iteration-count: 1 !important;
+     transition-duration: 0.01ms !important;
+     scroll-behavior: auto !important;
+   }
+ }
+
+:root {
+    --color-main-font: #283267;
+    --color-middle-font: #737589;
+    --color-bg: #EFEEEF;
+    --color-header: #E5C5BF;
+    --color-border: #F8EBE9;
+    --color-white: #FFFFFF;
+  
+    --border: 1.5px solid var(var(--color-border));
+
+    --font-family-base: 'Helvetica', san-serif;
+    --font-family-accent: 'Verdana', san-serif;
+  
+    --container-width: 1822px;
+    --container-padding-x: 15px;
+  
+    --transition-duration: 0.2s;
+}
+
+body {
+    /*font-family: ;*/
+    color: var(--color-main-font);
+    background-color: #C7C7C7;
+  }
+  
+.container {
+    max-width: 1820px;
+    margin: 0 auto;
+    background: var(--color-bg); 
+    border-radius: 40px;
+    position: relative;
+}
+.menu {
+    width: 178px; 
+    height: 1267px; 
+    background: white; 
+    border-radius: 30px
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu__card  {
+    position: absolute;
+    width: 127px;
+    height: 174px;
+    right: 26px;
+    left: 25px;
+    top: 155px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-bg);
+    border-radius: 20px;
+    background: var(--color-white);
+}
+
+.menu__courses {
+    position: absolute;
+    width: 127px;
+    height: 174px;
+    right: 26px;
+    left: 25px;
+    top: 369px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-bg);
+    border-radius: 20px;
+    background: var(--color-white);
+}
+
+.menu__works {
+    position: absolute;
+    width: 127px;
+    height: 174px;
+    right: 26px;
+    left: 25px;
+    top: 583px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-bg);
+    border-radius: 20px;
+    background: var(--color-white);
+}
+
+.menu__subjects {
+    position: absolute;
+    width: 127px;
+    height: 174px;
+    right: 26px;
+    left: 25px;
+    top: 797px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-bg);
+    border-radius: 20px;
+    background: var(--color-white);
+}
+
+.menu__umkd {
+    position: absolute;
+    width: 127px;
+    height: 174px;
+    right: 26px;
+    left: 25px;
+    top: 1011px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-bg);
+    border-radius: 20px;
+    background: var(--color-white);
+}
+
+.menu__card__circle, .menu__courses__circle, .menu__works__circle, .menu__subjects__circle, .menu__umkd__circle {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    left: 26px;
+    right: 26px;
+    top: 25px;
+    bottom: 74px;
+    background: rgb(239, 238, 239);
+    border-radius: 50%;
+    z-index: 20;
+}
+
+.menu__card__circle:hover, .menu__courses__circle:hover, .menu__works__circle:hover, .menu__subjects__circle:hover, .menu__umkd__circle:hover {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    left: 26px;
+    right: 26px;
+    top: 25px;
+    bottom: 74px;
+    background: var(--color-header);
+    border-radius: 50%;
+}
+
+.menu__card__desc, .menu__courses__desc {
+    right: 25px;
+    left: 25px;
+    top: 118px; 
+    bottom: 14px;
+    position: absolute; 
+    display: flex;
+    flex-direction: row;
+    color: rgb(115, 117, 137);
+    font-size: 26px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+}
+
+.menu__works__desc {
+    right: 17px;
+    left: 17px;
+    top: 101px; 
+    bottom: 7px;
+    position: absolute; 
+    display: flex;
+    flex-direction: row;
+    color: rgb(115, 117, 137);
+    font-size: 22px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+}
+
+.menu__subjects__desc {
+    right: 17px;
+    left: 17px;
+    top: 101px; 
+    bottom: 7px;
+    position: absolute; 
+    display: flex;
+    flex-direction: row;
+    color: rgb(115, 117, 137);
+    font-size: 18px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+}
+
+.menu__umkd__desc {
+    right: 24px;
+    left: 24px;
+    top: 118px; 
+    bottom: 14px;
+    position: absolute; 
+    display: flex;
+    flex-direction: row;
+    color: rgb(115, 117, 137);
+    font-size: 26px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+}
+
+.menu__card_icon, .menu__courses_icon, .menu__works_icon, .menu__subjects_icon, .menu__umkd_icon {
+    width: 55px; 
+    height: 55px; 
+    left: 36px; 
+    top: 35px; 
+    position: absolute;
+}
+
+.title {
+    position: absolute;
+    top: 33px;
+    left: 252px;
+    font-size: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+}
+
+.title_umkd {
+    position: absolute;
+    top: 33px;
+    left: 252px;
+    font-size: 58px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+}
+
+.bio__head {
+    position: absolute;
+    left: 252px;
+    top: 150px;
+    right: 68px;
+    width: 1502px;
+    height: 219px;
+    filter: drop-shadow(15px 15px 25px rgba(0, 0, 0, 0.2));
+}
+
+.bio__fio {
+    position: absolute;
+    left: 318px;
+    top: 15px;
+    font-size: 48px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+}
+
+.bio__position {
+    position: absolute;
+    left: 318px;
+    top: 90px;
+    font-size: 24px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-middle-font);
+}
+
+.bio__svg__1 {
+    position: absolute;
+    left: 252px;
+    top: 450px;
+    filter: drop-shadow(15px 15px 25px rgba(0, 0, 0, 0.2));
+}
+
+.bio__career {
+    position: absolute;
+    left: 22px;
+    top: 14px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 34px;
+}
+
+.bio__title__rank {
+    position: absolute;
+    left: 42px;
+    top: 99px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-middle-font);
+    font-size: 24px;
+}
+
+.bio__title_degree {
+    position: absolute;
+    left: 42px;
+    top: 177px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-middle-font);
+    font-size: 24px;
+    z-index: 999;
+}
+
+.bio__title__depart {
+    position: absolute;
+    left: 42px;
+    top: 255px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-middle-font);
+    font-size: 24px;
+    z-index: 999;
+}
+
+.bio__title__rank__disc {
+    position: absolute;
+    left: 212px;
+    top: 99px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-main-font);
+    font-size: 24px;
+}
+
+.bio__title__degree__disc {
+    position: absolute;
+    left: 212px;
+    top: 177px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-main-font);
+    font-size: 24px;
+    z-index: 999;
+}
+
+.bio__title__depart__disc {
+    position: absolute;
+    left: 212px;
+    top: 255px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-main-font);
+    font-size: 24px;
+    z-index: 999;
+}
+
+.bio__line {
+    position: absolute;
+    left: 37px;
+    top: 155px;
+}
+
+.bio__title__depart__disc {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.bio__svg__2 {
+    position: absolute;
+    width: 660px;
+    height: 252px;
+    left: 1094px;
+    top: 528px;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(229, 197, 191);
+    border-radius: 35px;
+    box-shadow: 15px 15px 25px 0px rgba(0, 0, 0, 0.2);
+    background: rgb(255, 255, 255);
+}
+
+.bio__experience {
+    position: absolute;
+    left: 22px;
+    top: 12px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 34px;
+}
+
+.bio__title__job-data {
+    position: absolute;
+    left: 42px;
+    top: 100px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-middle-font);
+    font-size: 24px;
+}
+
+.bio__title__job-date__disc {
+    position: absolute;
+    left: 470px;
+    top: 100px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-main-font);
+    font-size: 24px;
+}
+
+.bio__title__experience {
+    position: absolute;
+    left: 42px;
+    top: 177px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-middle-font);
+    font-size: 24px;
+    z-index: 999;
+}
+
+.bio__title__experience__disc {
+    position: absolute;
+    left: 225px;
+    top: 177px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-main-font);
+    font-size: 24px;
+    z-index: 1000;
+}
+
+.bio__line_svg_2 {
+    position: absolute;
+    left: 31px;
+    top: 155px;
+}
+
+.block__course_container {
+    position: absolute;
+    left: 14%; /* Изменено с 252px на 10%, чтобы блок мог уменьшаться */
+    top: 20%; /* Изменено с 188px на 20%, чтобы блок мог уменьшаться */
+    width: 80%; /* Изменено с 100% на 80%, чтобы блок мог уменьшаться */
+    max-width: 100%; /* Изменено с 1490px на 70%, чтобы блок мог уменьшаться */
+    margin: auto;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Опционально, для добавления пространства между элементами */
+}
+
+.sw_block {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(229, 197, 191);
+    border-radius: 40px;
+    box-shadow: 15px 15px 25px -15px rgba(0, 0, 0, 0.25);
+    background: rgb(255, 255, 255);
+    margin-bottom: 30px;
+}
+
+.sw__year {
+    order: 1;
+    margin-left: 30px;    
+    font-size: 32px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    color: var(--color-middle-font);
+}
+
+.sw__vertical__line {
+    order: 2;
+    margin-inline: 30px;
+}
+
+.sw__disc {
+    order: 3;
+    flex-grow: 1;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 900px;
+    text-align: justify;
+    font-size: 30px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+}
+
+.sw__type_of_doc_downl_button {
+    order: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 55px;
+    margin-left: 30px;
+    gap: 15px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.sw__type__doc {
+    font-size: 30px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+}
+
+.sw__button_download {
+    width: 205px;
+    height: 42px;
+    border: none;
+    border-radius: 35px;
+    background: var(--color-main-font);
+    color: var(--color-white);
+    font-size: 30px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.block__scientific_container{
+    position: absolute;
+    left: 252px;
+    top: 188px;
+    width: 100%;
+    max-width: 1490px;
+    margin: auto;
+}
+
+.scientific__block {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(229, 197, 191);
+    border-radius: 40px;
+    box-shadow: 15px 15px 25px -15px rgba(0, 0, 0, 0.25);
+    background: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    padding-inline: 43px;
+    padding-top: 27px;
+    padding-bottom: 27px;
+    margin-bottom: 30px;
+}
+
+.inner-container_scientific {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.scientific__title_output {
+    order: 1;
+}
+
+.scientific__title {
+    width: 1120px;
+    text-align: justify;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+}
+
+.scientific__output {
+    width: 1120px;
+    text-align: justify;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+}
+
+.scientific__type_work_block {
+    order: 2;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.scientific__type_subtype {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.scientific__type_work {
+    text-align: center;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    width: 170px;
+    background-color: #B8BEE9;
+    border-radius: 35px;
+}
+
+.scientific__subtype_work {
+    text-align: center;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    width: 170px;
+    border-radius: 35px;
+}
+
+.scientific__link__work {
+    order: 2;
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    background-color: #283267;
+}
+
+.block__subjects_container {
+    position: absolute;
+    left: 252px;
+    top: 188px;
+    width: 100%;
+    max-width: 1070px;
+    margin: auto;
+}
+
+.subjects_block {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(229, 197, 191);
+    border-radius: 40px;
+    box-shadow: 15px 15px 25px -15px rgba(0, 0, 0, 0.25);
+    background: rgb(255, 255, 255);
+    padding-inline: 45px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.inner-container_subjects {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.subjects__title_of_subject {
+    order: 1;
+    width: 650px;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+}
+
+.subjects__type_of_lesson {
+    order: 2;
+    text-align: center;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    width: 335px;
+    background-color: #B8BEE9;
+    border-radius: 35px;
+}
+
+.block__umkd_container {
+    position: absolute;
+    left: 252px;
+    top: 188px;
+    width: 100%;
+    max-width: 1490px;
+    margin: auto;
+}
+
+.umkd_block {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(229, 197, 191);
+    border-radius: 40px;
+    box-shadow: 15px 15px 25px -15px rgba(0, 0, 0, 0.25);
+    background: rgb(255, 255, 255);
+    margin-bottom: 30px;
+}
+
+.collapsible {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(229, 197, 191);
+    border-radius: 40px;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    text-align: left;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    color: var(--color-main-font);
+    padding-top: 22px;
+    padding-bottom: 22px;
+    padding-left: 40px;
+}
+
+:root {
+    --initial-height: 0;
+    --final-height: 250px;
+}
+
+.umkd__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: var(--initial-height); 
+    overflow: hidden;
+    transition: height 0.5s ease-in-out; 
+}
+
+.umkd__content.umkd__content--open {
+    height: var(--final-height); 
+}
+
+
+.inline-umkd_content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    margin-bottom: 50px;
+    margin-top: 40px;
+}
+
+.hidden {
+    display: none;
+}
+
+section {
+    margin-top: 150px;
+}
+
+.educator_header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    background-color: var(--color-bg);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 2px solid var(--color-main-font);
+    z-index: 999;
+}
+
+.header_menu a {
+	position: relative;
+	font-size: 1.1em;
+	color: var(--color-main-font);
+    font-size: 32px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+	text-decoration: none;
+	margin-left: 40px;
+}
+
+.header_menu a::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	width: 100%;
+	height: 3px;
+	background: var(--color-header);
+	border-radius: 5px;
+	transform-origin: right;
+	transform: scaleX(0);
+	transition: transform .5s;
+}
+
+.header_menu a:hover::after {
+	transform-origin: left;
+	transform: scaleX(1);
+}
+
+.base_body {
+    background-color: var(--color-white);
+}
+
+.base_header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    z-index: 999;
+}
+
+.base_nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+.base_nav a {
+	position: relative;
+	color: var(--color-main-font);
+    font-size: 24px;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+	text-decoration: none;
+	margin-left: 40px;
+    margin-top: 25px;
+}
+
+.base_nav a::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	width: 100%;
+	height: 3px;
+	background: var(--color-header);
+	border-radius: 5px;
+	transform-origin: right;
+	transform: scaleX(0);
+	transition: transform .5s;
+}
+
+.base_nav a:hover::after {
+	transform-origin: left;
+	transform: scaleX(1);
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1200px;
+    text-align: center;
+    border-radius: 35px;
+    border: 3px solid var(--color-main-font);
+    background-color: var(--color-header);
+    color: var(--color-white);
+}
+
+.welcome_title {
+    padding: 25px;
+    font-size: 64px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.welcome_subtitle {
+    padding: 25px 30px;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    width: 1200px;
+    margin: 0 auto;
+    color: var(--color-middle-font);
+}
+
+.a_delete_course {
+    background-color: red;
+    width: 170px;
+    border-radius: 35px;
+    color: var(--color-main-font);
+    font-size: 28px;
+    font-weight: 700;
+    font-family: var(--font-family-base);
+    text-align: center;
+    text-decoration: none;
+}
+
+.a_delete_work {
+    background-color: red;
+    width: 170px;
+    border-radius: 35px;
+    color: var(--color-main-font);
+    font-size: 28px;
+    font-weight: 700;
+    font-family: var(--font-family-base);
+    text-align: center;
+    text-decoration: none;
+}
+
+.scientific__type_work {
+    text-align: center;
+    font-size: 28px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    width: 170px;
+    background-color: #B8BEE9;
+    border-radius: 35px;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+         max-width: 95%; /* Увеличьте максимальную ширину для больших экранов */
+     }
+ 
+    .block__course_container {
+         left: 5%; /* Сдвиньте блок ближе к левому краю */
+         top: 15%; /* Сдвиньте блок ближе к верхнему краю */
+         width: 85%; /* Увеличьте ширину блока */
+         max-width: 75%; /* Увеличьте максимальную ширину блока */
+     }
+ }
+ 
+ @media screen and (max-width: 992px) {
+    .container {
+         max-width: 98%; /* Увеличьте максимальную ширину для еще больших экранов */
+     }
+ 
+    .block__course_container {
+         left: 2.5%; /* Сдвиньте блок еще ближе к левому краю */
+         top: 10%; /* Сдвиньте блок еще ближе к верхнему краю */
+         width: 90%; /* Увеличьте ширину блока */
+         max-width: 80%; /* Увеличьте максимальную ширину блока */
+     }
+ }
