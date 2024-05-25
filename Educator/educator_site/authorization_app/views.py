@@ -105,7 +105,6 @@ def profile_page(request):
 
 def logout_view(request):
     logout(request)
-    # Перенаправление на главную страницу после выхода из системы
     return redirect('main_page') 
 
 @login_required
@@ -114,7 +113,7 @@ def add_refresher_course(request):
         form = RefresherCourseForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('profile_page')  # Переадресация после успешного сохранения
+            return redirect('profile_page')
     else:
         educator = Educator.objects.get(user=request.user)
         form = RefresherCourseForm(initial={'id_educ': educator.id_educator})
@@ -126,11 +125,11 @@ def add_science_work(request):
         form = ScienceWorkForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('profile_page')  # Переадресация после успешного сохранения
+            return redirect('profile_page')
     else:
-        # Получаем объект Educator, связанный с текущим пользователем
+        # Получение объекта Educator, связанного с текущим пользователем
         educator = Educator.objects.get(user=request.user)
-        # Передаем начальное значение для поля id_educ
+        # Передача начального значения для поля id_educ
         form = ScienceWorkForm(initial={'id_educ': educator.id_educator})
     return render(request, 'educator/add_science_work.html', {'form': form})
 
@@ -149,17 +148,14 @@ def add_subject_to_educator(request):
     if request.method == 'POST':
         form = AddSubjectForm(request.POST)
         if form.is_valid():
-            subject_id = form.cleaned_data['subject_id']  # Предполагается, что ID предмета передается через POST
+            subject_id = form.cleaned_data['subject_id']
             lesson_type = form.cleaned_data['type_of_lesson']
             
-            # Получаем объект Educator, связанный с текущим пользователем
             educator = Educator.objects.get(user=request.user)
             
-            # Создаем новый объект WhoIsLeading
-            # Используем объект Educator напрямую, а не его ID
             WhoIsLeading.objects.create(id_subj=subject_id, type_of_lesson=lesson_type, id_educ=educator)
             
-            return redirect('profile_page')  # Переадресация после успешного сохранения
+            return redirect('profile_page')
     else:
         form = AddSubjectForm()
     
